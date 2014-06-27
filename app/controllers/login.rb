@@ -1,3 +1,5 @@
+
+
 post '/sign_in' do
   @username = params[:username]
   user = User.authenticate(@username, params[:password])
@@ -22,6 +24,7 @@ post '/sign_up' do
   @user = User.new params[:user]
   if @user.save
     session[:user_id] = @user.id
+    session[:username] = @user.username
     redirect '/'
   else
     erb :index

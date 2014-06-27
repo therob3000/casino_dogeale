@@ -20,6 +20,8 @@
   <% if session[:user_id].nil? %>
     <%= erb :login_info %>
   <% else %>
+    <%= session[:user_id]%>
+    <%= session[:username]%>
     <a href="/sign_out">sign out</a>
   <% end %>
 
