@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_reader :entered_password
 
+  validates :username, uniqueness: true
+  validates :email, uniqueness: true
   has_many :bets
   has_many :accepted_bets
 

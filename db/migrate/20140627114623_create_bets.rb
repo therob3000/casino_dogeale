@@ -6,7 +6,7 @@ class CreateBets < ActiveRecord::Migration
       t.string :content
       t.float :total
       t.float :remainder
-
+      t.string :holder
       t.timestamps
     end
   end

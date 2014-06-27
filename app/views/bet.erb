@@ -1,9 +1,18 @@
+<%= @error if @error %>
 <div id="bet">
   <p id="bet_title"><%= @bet.title %> (<%= @bet.remainder %>)</p>
+  <p id="bookie"><%= User.find_by(id: @bet.user_id).username %></p>
   <p id="bet_content"> <%= @bet.content %></p>
-  <p id="bet_tags"> 
-    <% @bet.tags.each do |tag| %> 
-      <a href="/tag/<%=tag.name %>"> <%= tag.name %>
+  <p id="bet_tags">
+    <% @bet.tags.each do |tag| %>
+      <a href="/tag/<%=tag.name %>"> <%= tag.name %></a>
     <% end %>
   </p>
+  <form name="accept_bet" action="/bet/<%= @bet.id %>" method="post">
+    <input name="amount" type="text" placeholder="2.00">
+    <input type="submit" value="Place bet.">
+  </form>
+</div>
+<div id="accepted_bets">
+  <%= erb :bets %>
 </div>
