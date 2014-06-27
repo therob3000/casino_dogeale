@@ -1,3 +1,4 @@
+<%= @error if @error %>
 <div id="bet">
   <p id="bet_title"><%= @bet.title %> (<%= @bet.remainder %>)</p>
   <p id="bookie"><%= User.find_by(id: @bet.user_id).username %></p>

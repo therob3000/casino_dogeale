@@ -21,7 +21,9 @@ require "sinatra/reloader" if development?
 
 require 'erb'
 
-DOGE=
+my_key = 'g1yvsg1nbv6ma1i2wdgobh8l84'
+
+DOGE = DogeApi::DogeApi.new(my_key, 2)
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
