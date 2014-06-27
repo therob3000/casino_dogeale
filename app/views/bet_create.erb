@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- 
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
-  <link rel="stylesheet" href="/css/application.css">
+<%= @error if @error %>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
-
-  <title></title>
-</head>
-<body>
-  <%= yield %>
-</body>
-</html>
+<div id="create_bet">
+  <form name="new_bet" action="/bet" method="post">
+    <input name="bet[title]" type="text" placeholder="Bet Title">
+    <input name="bet[total]" type="text" placeholder="2.00">
+    <textarea name="bet[content]" cols="30" rows="10">Enter bet description and notes</textarea>
+    <input type="submit" value="Place bet">
+  </form>
+<div>

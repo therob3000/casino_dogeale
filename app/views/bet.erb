@@ -8,7 +8,10 @@
     <% end %>
   </p>
   <form name="accept_bet" action="/bet/<%= @bet.id %>" method="post">
-    <input name="bet[amount]" type="text" placeholder="2.00">
+    <input name="amount" type="text" placeholder="2.00">
     <input type="submit" value="Place bet.">
   </form>
+</div>
+<div id="accepted_bets">
+  <%= erb :bets %>
 </div>
