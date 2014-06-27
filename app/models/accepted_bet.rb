@@ -1,5 +1,5 @@
 class AcceptedBet < ActiveRecord::Base
-  validates :amount, greater_than: 0
+  validates :amount, numericality:{ greater_than: 0 }
   belongs_to :bet
   belongs_to :user
   before_save :create_holder

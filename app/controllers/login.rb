@@ -25,6 +25,7 @@ post '/sign_up' do
   if @user.save
     session[:user_id] = @user.id
     session[:username] = @user.username
+    DOGE.create_user(user_id: @user.username)
     redirect '/'
   else
     erb :index
