@@ -1,11 +1,11 @@
 class AcceptedBet < ActiveRecord::Base
   belongs_to :bet
   belongs_to :user
-  before_save :generate_holder
+  before_save :create_holder
 
   private
-  def generate_holder
-    doge.create('')
-    self.holder =
+   def create_holder
+    self.holder = Dogedler.create.unique_holder
+    doge.create_user(user_id: self.holder)
   end
 end
