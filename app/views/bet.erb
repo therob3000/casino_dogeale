@@ -1,0 +1,9 @@
+<div id="bet">
+  <p id="bet_title"><%= @bet.title %> (<%= @bet.remainder %>)</p>
+  <p id="bet_content"> <%= @bet.content %></p>
+  <p id="bet_tags"> 
+    <% @bet.tags.each do |tag| %> 
+      <a href="/tag/<%=tag.name %>"> <%= tag.name %>
+    <% end %>
+  </p>
+</div>
