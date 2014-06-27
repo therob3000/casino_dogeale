@@ -15,6 +15,8 @@ gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'
 
 gem 'rake'
+gem 'doge_api'
+gem "bcrypt"
 
 gem 'shotgun'
 
