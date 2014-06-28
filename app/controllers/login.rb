@@ -40,3 +40,7 @@ get '/sign_out' do
   session.clear
   redirect '/'
 end
+
+get '/sign_up' do 
+  erb :sign_up
+end

@@ -16,12 +16,7 @@ html {
  * Remove default margin.
  */
 
-body {
-  margin: 0;
-  background-image: url("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQAHdbn7Ud5vNadxABaYGMSZOwvbZahlOwRwp2qnykT3wvC5JY-AA");
-  background-size: cover;
-  background-image: no-repeat;
-}
+
 
 /* HTML5 display definitions
    ========================================================================== */
@@ -423,9 +418,4 @@ table {
 td,
 th {
   padding: 0;
-}
-
-
-.profile {
-
 }
