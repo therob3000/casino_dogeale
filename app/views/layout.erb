@@ -16,7 +16,6 @@
   <script src="/js/application.js"></script>
 
   <title></title>
-
   <% if session[:user_id].nil? %>
     <%= erb :login_info %>
   <% else %>
@@ -26,10 +25,8 @@
     <a href ="/profile/<%=session[:username]%>">Profile</a><br>
     <a href="/sign_out">sign out</a>
   <% end %>
-
 </head>
 <body>
-  <%= %>
   <%= yield %>
 </body>
 </html>
