@@ -14,5 +14,5 @@
   </form>
 </div>
 <div id="accepted_bets">
-  <%= erb :bets %>
+  <%= @bet.accepted_bets.map{|a_bet| "<p>#{a_bet.user.username}</p><p>#{a_bet.amount}</p><p>#{a_bet.created_at}</p>" }.join %>
 </div>

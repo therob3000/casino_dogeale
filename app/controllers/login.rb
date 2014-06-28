@@ -5,6 +5,8 @@ post '/sign_in' do
   user = User.authenticate(@username, params[:password])
   if user
     session[:user_id] = user.id
+    session[:username] = user.username
+    session[:address] = user.address
     redirect '/'
   else
     @error = "Invalid username or password."
@@ -21,11 +23,11 @@ end
 # end
 
 post '/sign_up' do
-  @user = User.new params[:user]
-  if @user.save
+  user = User.new params[:user]
+  if user.save
     session[:user_id] = @user.id
-    session[:username] = @user.username
-    DOGE.create_user(user_id: @user.username)
+    session[:username] = user.username
+    session[:address] = user.address
     redirect '/'
   else
     erb :index

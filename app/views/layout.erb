@@ -16,15 +16,15 @@
   <script src="/js/application.js"></script>
 
   <title></title>
-  <nav>
-    <% if session[:user_id].nil? %>
-      <%= erb :login_info %>
-    <% else %>
-      <%= session[:user_id]%>
-      <%= session[:username]%>
-      <a href="/sign_out">sign out</a>
-    <% end %>
-  </nav>
+  <% if session[:user_id].nil? %>
+    <%= erb :login_info %>
+  <% else %>
+    <%= session[:username]%><br>
+    <%= session[:address]%><br>
+    <%= doge_balance %><br>
+    <a href ="/profile/<%=session[:username]%>">Profile</a><br>
+    <a href="/sign_out">sign out</a>
+  <% end %>
 </head>
 <body>
   <%= yield %>
