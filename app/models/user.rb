@@ -1,14 +1,13 @@
 class User < ActiveRecord::Base
   attr_reader :entered_password
-
-  validates :username, uniqueness: true
-  validates :email, uniqueness: true
   has_many :bets
   has_many :accepted_bets
-
+  validates :username, uniqueness: true
+  validates :email, uniqueness: true
+  #validates :address, presence: true
   validates :username, :length => { :minimum => 5, :message => "must be at least 5 characters doge!" }
   validates :entered_password, :length => { :minimum => 6 }
-
+  before_save :get_new_address
   include BCrypt
 
   def password
@@ -25,6 +24,14 @@ class User < ActiveRecord::Base
     user = User.find_by_username(username)
     return user if user && (user.password == password)
     nil # either invalid username or wrong password
+  end
+
+  private
+  def get_new_address
+    string = DOGE.create_user(user_id: self.username)
+    string.gsub!(/[:]/, '=>')
+    string.gsub!(/[\\\\]/, '')
+    self.address = eval(string)["data"]["address"]
   end
 
 end

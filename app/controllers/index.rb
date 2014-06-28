@@ -4,6 +4,6 @@ get '/' do
 end
 
 get '/profile/:username' do
-  @user = User.find_by_id(session[:user_id])
+  @user = User.find_by(username: params[:username])
   erb :profile
 end

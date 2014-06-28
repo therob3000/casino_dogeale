@@ -1,9 +1,15 @@
 
 <div class = "profile">
-<h1> Welcome <%= @user.username %> </h1>
-<h2>Here are your bets</h2>
+<h1> Profile for <%= @user.username %> </h1>
+<h2> <%= @user.address %> </h2>
+<h2>Bets created by <%@user.username %></h2>
 <% @user.bets.each do |bet| %>
-<%= bet %>
+<%= "#{bet.title}<br>#{bet.content}<br>#{bet.remainder} of #{bet.total}" %>
+<% end %>
+<h2>Action taken by <%@user.username %></h2>
+<% @user.accepted_bets.each do |a_bet| %>
+<% master_bet = Bet.find_by_id(a_bet.bet_id) %>
+<%= "#{a_bet.amount} with #{User.find_by_id(master_bet.user_id).username}<br>#{master_bet.title}<br>#{master_bet.content}<br>" %>
 <% end %>
 </div>
 
