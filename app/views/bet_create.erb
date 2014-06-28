@@ -1,10 +1,8 @@
-<%= @error if @error %>
+<%= @error if @error %> <br>
 
-<div id="create_bet">
   <form name="new_bet" action="/bet/create" method="post">
-    <input name="bet[title]" type="text" placeholder="Bet Title">
-    <input name="bet[total]" type="text" placeholder="2.00">
-    <textarea name="bet[content]" cols="30" rows="10">Enter bet description and notes</textarea>
-    <input type="submit" value="Place bet">
+    <input name="bet[title]" type="text" placeholder="Bet Title"><br>
+    <input name="bet[total]" type="text" placeholder="2.00"><br>
+    <textarea name="bet[content]" cols="30" rows="10" placeholder="Enter bet description and notes"></textarea> <br>
+    <button type="submit">Place bet</button>
   </form>
-<div>

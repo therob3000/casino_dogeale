@@ -1,5 +1,7 @@
 get '/' do
   @bets = Bet.all
+  @errors = session[:error]
+  # session[:error].delete
   erb :index
 end
 

@@ -7,26 +7,33 @@
     See: http://necolas.github.com/normalize.css/
   -->
   <link rel="stylesheet" href="/css/normalize.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
   <!--
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 
   <title></title>
-  <% if session[:user_id].nil? %>
-    <%= erb :login_info %>
-  <% else %>
-    <%= session[:username]%><br>
-    <%= session[:address]%><br>
-    <%= doge_balance %><br>
-    <a href ="/profile/<%=session[:username]%>">Profile</a><br>
-    <a href="/sign_out">sign out</a>
-  <% end %>
 </head>
 <body>
-  <%= yield %>
+  <div class="doge_blur"></div>
+  <div id="header">
+    <a href="/"><h1>Welcome to Casino Dogeal</h1></a>
+  </div>
+
+  <div id="content">
+
+    <div id="main">
+      <%= yield %>
+    </div>
+
+    <div class="right_nav">
+      <%= erb :right_nav %>
+    </div>
+  </div>
 </body>
 </html>

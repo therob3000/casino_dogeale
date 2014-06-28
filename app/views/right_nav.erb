@@ -1,0 +1,11 @@
+<div id="nav">
+  <% if session[:user_id].nil? %>
+    <%= erb :signup %>
+    <%= erb :sign_up %>
+  <% else %>
+    <%= session[:username]%><br>
+    <%= session[:address]%><br>
+    <a href ="/profile/<%=session[:username]%>">Profile</a><br>
+    <a href="/sign_out">sign out</a>
+  <% end %>
+</div>

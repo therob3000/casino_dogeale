@@ -25,12 +25,13 @@ end
 post '/sign_up' do
   user = User.new params[:user]
   if user.save
-    session[:user_id] = @user.id
+    session[:user_id] = user.id
     session[:username] = user.username
     session[:address] = user.address
     redirect '/'
   else
-    erb :index
+    session[:error] = "unable to create. please try again"
+    redirect '/'
   end
 end
 
@@ -41,6 +42,6 @@ get '/sign_out' do
   redirect '/'
 end
 
-get '/sign_up' do 
+get '/sign_up' do
   erb :sign_up
 end
