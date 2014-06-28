@@ -1,5 +1,4 @@
 class Bet < ActiveRecord::Base
-  validates :username, uniqueness: true
   validates :total, numericality:{ greater_than: 0 }
   has_many :accepted_bets
   has_and_belongs_to_many :tags
@@ -9,6 +8,6 @@ class Bet < ActiveRecord::Base
   private
   def create_holder
     self.holder = Dogedler.create.unique_holder
-    doge.create_user(user_id: self.holder)
+    DOGE.create_user(user_id: self.holder)
   end
 end

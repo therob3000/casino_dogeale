@@ -1,26 +1,10 @@
-<div class="container"><br><br>
-  <form id="sign-in" method="post" action="/sign_in">
+<div id="login">
+<form id="sign-in" method="post" action="/sign_in">
     <input type="username" name="username" placeholder="username"><br>
     <input type="password" name="password" placeholder="password">
     <br>
+    <center>
     <div class="submit"><input type="submit" value="Sign In"></div>
+    </center>
   </form><br><br>
-
-
-  <form id="sign-up" method="post" action="/sign_up">
-
-    <input type="text" name="user[username]" placeholder="Username">
-    <span id="name-errors" class="errors"></span>
-    <br>
-
-    <input type="email" name="user[email]" placeholder="email">
-    <span id="email-errors" class="errors"></span>
-    <br>
-
-    <input type="password" name="user[password]" placeholder="password">
-    <span id="entered_password-errors" class="errors"></span>
-    <br>
-
-    <div class="submit"><input type="submit" value="Sign Up"></div>
-  </form>
 </div>
