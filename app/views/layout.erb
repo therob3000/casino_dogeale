@@ -17,7 +17,7 @@
 
   <title></title>
   <% if session[:user_id].nil? %>
-    <%= erb :login_info %>
+    <%= erb :sign_in %>
   <% else %>
     <%= session[:username]%><br>
     <%= session[:address]%><br>
