@@ -14,12 +14,27 @@ body a {
 	color: #4A4A4A;
 }
 
+.profile b {
+  font-weight: bold;
+}
+
 #bet_button {
   font-size: 35px;
   margin-bottom: 50px
 }
 
+.profile {
+  font-size: 15px;
+  color: #4A4A4A;
+}
 
+#profile_id {
+  font-size: 15px;
+}
+
+#profile_header {
+  font-size: 40px;
+}
 
 #header {
 	width: 50%;
@@ -43,11 +58,6 @@ body a {
 #header a,a:visited {
 	text-decoration: none;
 }
-}
-
-#bets {
-
-}
 
 #main {
 	text-align: left;
@@ -70,12 +80,23 @@ body a {
 	text-align: left;
 }
 
-.login {
-
-}
-
 #bet_title {
   font-size: 20px;
+}
+
+.king_doge {
+  position: fixed;
+  bottom: -50px;
+  left: 0;
+}
+.king_doge img {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+  width: 200px;
 }
 
 #bet_content {

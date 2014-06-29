@@ -5,7 +5,8 @@ end
 
 get '/tag/:name' do
   @tag = Tag.find_by(name: params[:name])
-  @bets = tag.bets.order(:created_at).reverse_order
+  p @tag
+  @bets = @tag.bets.order(:created_at).reverse_order
   erb :tag
 end
 
