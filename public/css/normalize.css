@@ -249,8 +249,9 @@ optgroup,
 select,
 textarea {
   color: inherit; /* 1 */
-  font: inherit; /* 2 */
+  font-size: 18px;
   margin: 0; /* 3 */
+  font-family: 'Ubuntu Mono';
 }
 
 /**

@@ -8,6 +8,8 @@
   -->
   <link rel="stylesheet" href="/css/normalize.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
   <!--
     application.css is where you put your styles
   -->
@@ -18,20 +20,11 @@
     <script src="js/bootstrap.min.js"></script>
 
   <title></title>
-  <% if session[:user_id].nil? %>
-    <%= erb :sign_in %>
-  <% else %>
-    <%= session[:username]%><br>
-    <%= session[:address]%><br>
-    <%= doge_balance %><br>
-    <a href ="/profile/<%=session[:username]%>">Profile</a><br>
-    <a href="/sign_out">sign out</a>
-  <% end %>
 </head>
 <body>
   <div class="doge_blur"></div>
   <div id="header">
-    <a href="/"><h1>Welcome to Casino Dogeal</h1></a>
+    <a href="/"><h1>Casino Dogeale</h1></a>
   </div>
 
   <div id="content">
