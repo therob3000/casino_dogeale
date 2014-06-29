@@ -1,8 +1,8 @@
 <%= @error if @error %> <br>
 
-  <form name="new_bet" action="/bet/create" method="post">
-    <input name="bet[title]" type="text" placeholder="Bet Title"><br>
-    <input name="bet[total]" type="text" placeholder="2.00"><br>
-    <textarea name="bet[content]" cols="30" rows="10" placeholder="Enter bet description and notes"></textarea> <br>
-    <button type="submit">Place bet</button>
+  <form name="new_bet" id="new_bet" action="/bet/create" method="post">
+    <input name="bet[title]" type="text" placeholder="bet title"><br>
+    <input name="bet[total]" type="text" placeholder="example: 2.00"><br>
+    <textarea name="bet[content]" cols="30" rows="10" placeholder="enter bet description and notes"></textarea> <br>
+    <button type="submit">much win</button>
   </form>
