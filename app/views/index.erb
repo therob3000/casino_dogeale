@@ -1,6 +1,7 @@
+
 <div id="container">
-	<% if session[:id]%>
+	<% if session[:user_id]%>
 	  <a href="/bet/create"> SUCH BET.</a>
-	<% end%>
+	<% end %>
 	<%= erb :bets %>
 </div>

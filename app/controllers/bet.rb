@@ -39,7 +39,7 @@ post '/bet/:id' do
   if user_balance >= accepted_bet_values[:amount] && bet.remainder >= accepted_bet_values[:amount]
     bet.accepted_bets << AcceptedBet.create(accepted_bet_values)
     DOGE.move_to_user(to_user_id: bet.accepted_bets.last.holder, from_user_id: user.username, amount_doge: accepted_bet_values[:amount])
-    DOGE.move_to_user(to_user_id: bet.accepted_bets.last.holder, from_user_id: bet.holder, amount_doge: (bet.remainder - accepted_bet_values[:amount]))
+    DOGE.move_to_user(to_user_id: bet.accepted_bets.last.holder, from_user_id: bet.holder, amount_doge: (accepted_bet_values[:amount]))
     bet.remainder -= accepted_bet_values[:amount]
     bet.save
     redirect '/'

@@ -3,7 +3,7 @@
 <h2> <%= @user.address %> </h2>
 <h2>Bets created by <%@user.username %></h2>
 <% @user.bets.each do |bet| %>
-<%= "#{bet.title}<br>#{bet.content}<br>#{bet.remainder} of #{bet.total}" %>
+<%= "<p>#{bet.title}<br>#{bet.content}<br>#{bet.remainder} of #{bet.total}<br></p>" %>
 <% end %>
 <h2>Action taken by <%@user.username %></h2>
 <% @user.accepted_bets.each do |a_bet| %>
