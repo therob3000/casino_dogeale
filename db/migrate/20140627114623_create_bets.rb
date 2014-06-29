@@ -7,6 +7,8 @@ class CreateBets < ActiveRecord::Migration
       t.float :total
       t.float :remainder
       t.string :holder
+      t.string :status
+      t.timestamp :expiration
       t.timestamps
     end
   end

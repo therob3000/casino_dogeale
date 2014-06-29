@@ -5,7 +5,7 @@ class CreateAcceptedBets < ActiveRecord::Migration
       t.references :user
       t.float :amount
       t.string :holder
-
+      t.string :status
       t.timestamps
     end
   end
