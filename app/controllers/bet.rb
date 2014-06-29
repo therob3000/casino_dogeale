@@ -5,12 +5,14 @@ end
 
 get '/tag/:name' do
   @tag = Tag.find_by(name: params[:name])
-  @bets = tag.bets.order(:created_at).reverse_order
+  p @tag
+  @bets = @tag.bets.order(:created_at).reverse_order
   erb :tag
 end
 
 post '/bet/create' do
   bet = params[:bet]
+  bet[:expiration] = expiration_parse(params[:expiration])
   bet[:remainder] = bet[:total].to_f
   user = User.find_by_id(session[:user_id])
   user_balance = doge_balance
