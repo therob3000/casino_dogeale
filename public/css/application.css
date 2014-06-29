@@ -67,8 +67,17 @@ body a {
 
 }
 
-.bet_tags {
+#bet_title {
+  font-size: 20px;
+}
 
+#bet_content {
+  font-size: 15px;
+}
+
+.bet_tags {
+  margin-left: 7%;
+  font-size: 12px;
 }
 
 #new_bet input, textarea {
