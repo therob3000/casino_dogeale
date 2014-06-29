@@ -24,14 +24,26 @@ body a {
 #content {
 	width: 80%;
 	margin: auto;
+	font-family: 'Ubuntu Mono';
+	size: 25px;
 }
 
 #header h1 {
 	color: white;
+	font-family: 'Anton', sans-serif;
+	font-size: 60px;
+}
+#header a,a:visited {
+	text-decoration: none;
+}
+}
+
+#bets {
+
 }
 
 #main {
-	text-align: center;
+	text-align: left;
 	float: left;
 	width:80%;
 	background: white;
@@ -59,18 +71,26 @@ body a {
 
 }
 
+#new_bet input, textarea {
+  border: 1px dotted black;
+}
+
+#new_bet button {
+  background: rgb(255, 197, 15);
+}
+
 .doge_blur {
 		z-index: -9000;
-    height: 800px;
+    height: 100%;
     width:100%;
     text-align:center;
     background:url('https://altcy.com/wp-content/uploads/2014/03/29089-doge-3d-dogecoin-background.png') no-repeat center;
     background-size:cover;
-    -webkit-filter: blur(13px);
-    -moz-filter: blur(13px);
-    -o-filter: blur(13px);
-    -ms-filter: blur(13px);
-    filter: blur(13px);
+    -webkit-filter: blur(7px);
+    -moz-filter: blur(7px);
+    -o-filter: blur(7px);
+    -ms-filter: blur(7px);
+    filter: blur(7px);
     position: fixed;
     left:0;
     top: 0;
@@ -81,7 +101,7 @@ body a {
 	width: 12.5%;
 	/*background: white;*/
 	color: white;
-	word-wrap: break-word;
+
 }
 
 #nav a:link {
@@ -101,7 +121,8 @@ body a {
 }
 
 input {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
+  color: black;
 }
 
 button {

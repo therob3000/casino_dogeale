@@ -3,13 +3,16 @@
 post '/sign_in' do
   @username = params[:username]
   user = User.authenticate(@username, params[:password])
+  p user.class
   if user
+    p "success"
     session[:user_id] = user.id
     session[:username] = user.username
     session[:address] = user.address
     redirect '/'
   else
     @error = "Invalid username or password."
+    p "failure"
     redirect '/'
   end
 end
