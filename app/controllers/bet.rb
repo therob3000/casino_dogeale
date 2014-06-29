@@ -11,6 +11,7 @@ end
 
 post '/bet/create' do
   bet = params[:bet]
+  bet[:expiration] = expiration_parse(params[:expiration])
   bet[:remainder] = bet[:total].to_f
   user = User.find_by_id(session[:user_id])
   user_balance = doge_balance
