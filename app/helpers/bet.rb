@@ -4,8 +4,6 @@ helpers do
   end
 
   def process_tags(tags)
-  	p "HELLO"
-  	p tags
     p_tags = []
     tags.split(',').uniq.each{|tag|
     s_tag = tag.strip
@@ -26,5 +24,17 @@ helpers do
 	    bet.tags << tag
 	  }
   end
+
+  def set_expired
+      bets = Bet.all.where(status: 'open')
+    bets.each{|bet| 
+      if bet.expired?
+          bet.status = 'expired'
+          DOGE.move(bet.holder, User.find_by(id:bet.user_id).username, DOGE.get_balance(bet.holder))
+          bet.save
+      end
+    }
+  end
+
 
 end

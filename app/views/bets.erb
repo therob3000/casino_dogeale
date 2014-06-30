@@ -2,7 +2,11 @@
 <% @bets.each do |bet| %>
 <div id="main">
   <p id="bet_title"><a href="/bet/<%=bet.id%>"><%= bet.title %></a>
+  <% if !bet.expired? %>
   <p>Time Remaining <%= (time_remaining(bet.expiration - Time.now)) %></p>
+  <% else %>
+  <p>BET IS EXPIRED</p>
+  <% end %>
   <span class = 'eth'>Ð</span><%= bet.remainder %> of betting action remaining<br>
   <p> Betting on <%= bet.winner %> to WIN </p>
   <p class="bet_tags">very tags:

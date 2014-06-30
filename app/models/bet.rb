@@ -6,6 +6,11 @@ class Bet < ActiveRecord::Base
   before_save :create_holder
   before_save :set_status
 
+ def expired?
+    return true if (self.expiration - Time.now) <= 0
+    false
+  end
+
   private
   def create_holder
     if self.holder.nil?
