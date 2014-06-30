@@ -26,7 +26,7 @@ GEM
       xpath (~> 2.0)
     daemons (1.1.9)
     diff-lcs (1.2.5)
-    doge_api (0.0.7)
+    dogecoin_client (0.5.0)
     eventmachine (1.0.3)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
@@ -89,7 +89,7 @@ DEPENDENCIES
   activesupport (~> 4.1)
   bcrypt
   capybara
-  doge_api
+  dogecoin_client
   factory_girl
   faker
   pg

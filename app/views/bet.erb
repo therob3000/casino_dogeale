@@ -1,7 +1,9 @@
 <%= @error if @error %>
 <div id="bet">
-  <p id="bet_title"><%= @bet.title %> (<%= @bet.remainder %>)</p>
-  <p id="bookie"><%= User.find_by(id: @bet.user_id).username %></p>
+  <p id="bet_title"><%= @bet.title %><br>
+  <p> Total Action Offered: <span class = 'eth'>Ð</span><%= @bet.total %></p>
+  <p> Total Action Remaining: <span class = 'eth'>Ð</span><%= @bet.remainder %></p>
+  <p id="bookie">Bookie: <%= User.find_by(id: @bet.user_id).username %></p>
   <p id="bet_content"> <%= @bet.content %></p>
   <p id="bet_tags">
     <% @bet.tags.each do |tag| %>

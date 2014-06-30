@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   #validates :address, presence: true
   validates :username, :length => { :minimum => 5, :message => "must be at least 5 characters doge!" }
   validates :entered_password, :length => { :minimum => 6 }
-  before_save :get_new_address
+  after_save :get_new_address
   include BCrypt
 
   def password
@@ -28,10 +28,10 @@ class User < ActiveRecord::Base
 
   private
   def get_new_address
-    string = DOGE.create_user(user_id: self.username)
-    string.gsub!(/[:]/, '=>')
-    string.gsub!(/[\\\\]/, '')
-    self.address = eval(string)["data"]["address"]
+    if self.address.nil?
+      self.address  = DOGE.get_new_address(self.username)
+      self.save
+    end
   end
 
 end

@@ -5,6 +5,7 @@
   <% else %>
     <%= session[:username]%><br>
     <%= session[:address]%><br>
+    <span class = 'eth'>Ð</span> <%= DOGE.get_balance(session[:username]) %><br>
     <a href ="/profile/<%=session[:username]%>">profile</a><br>
     <a href="/sign_out">sign out</a>
   <% end %>

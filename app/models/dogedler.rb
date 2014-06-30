@@ -3,7 +3,7 @@ class Dogedler < ActiveRecord::Base
 
   private
   def generate_next
-  		unless self.unique_holder == "b00"
+  		unless self.unique_holder == "c00"
       	self.unique_holder = self.class.last.unique_holder.next!
       end
   end

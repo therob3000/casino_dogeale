@@ -8,11 +8,13 @@ class Bet < ActiveRecord::Base
 
   private
   def create_holder
-    self.holder = Dogedler.create.unique_holder
-    DOGE.create_user(user_id: self.holder)
+    key = Dogedler.create
+    self.holder = key.unique_holder
+    DOGE.get_new_address(self.holder)
   end
 
   def set_status
     self.status = 'open'
   end
+
 end
