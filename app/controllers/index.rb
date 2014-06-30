@@ -1,4 +1,5 @@
 get '/' do
+	set_expired
   @bets = Bet.all
   @errors = session[:error]
   # session[:error].delete

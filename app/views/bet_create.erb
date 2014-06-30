@@ -1,9 +1,14 @@
 <%= @error if @error %> <br>
-
+	<div class = "bet_entry">
   <form name="new_bet" id="new_bet" action="/bet/create" method="post">
-    title:   <input name="bet[title]" type="text" placeholder="ex. World Cup"><br>
-    amount: <input name="bet[total]" type="text" placeholder="ex. 2.00"><br>
-    expiration: <input name="bet[expiration]" type="text" placeholder="YYYY-MM-DD HH:MM:SS"><br>
-    <textarea name="bet[content]" cols="30" rows="10" placeholder="enter bet description and notes"></textarea> <br>
+  	<span class ="entry">title:</span><input name="bet[title]" type="text" placeholder="ex. World Cup"><br>
+  <span class ="entry">amount:</span> <input name="bet[total]" type="text" placeholder="ex. 2.00"><br>
+  <span class ="entry">Winner:</span> <input name="bet[winner]" type="text" placeholder="America"><br>
+  <span class ="entry">Loser:</span> <input name="bet[loser]" type="text" placeholder="Belarus"><br>
+  <span class ="entry">expiration:</span> <input name="bet[expiration]" type="text" placeholder="2nd Jul 2014 03:30:00 PM"><br>
+   <span class ="entry">search tags:</span> <input name="tags" type="text" placeholder="tags, like, this"><br>
+    <textarea name="bet[content]" cols="30" rows="10" placeholder="enter any notes"></textarea> <br>
+   
     <button type="submit">much win</button>
   </form>
+</div>

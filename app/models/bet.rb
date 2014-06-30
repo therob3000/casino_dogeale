@@ -6,13 +6,24 @@ class Bet < ActiveRecord::Base
   before_save :create_holder
   before_save :set_status
 
+ def expired?
+    return true if (self.expiration - Time.now) <= 0
+    false
+  end
+
   private
   def create_holder
-    self.holder = Dogedler.create.unique_holder
-    DOGE.create_user(user_id: self.holder)
+    if self.holder.nil?
+      key = Dogedler.create
+      self.holder = key.unique_holder
+      DOGE.get_new_address(self.holder)
+    end
   end
 
   def set_status
-    self.status = 'open'
+    if self.status.nil?
+      self.status = 'open'
+    end
   end
+
 end

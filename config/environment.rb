@@ -11,19 +11,17 @@ require 'rubygems'
 require 'uri'
 require 'pathname'
 require 'bcrypt'
-
+require 'date'
 require 'pg'
 require 'active_record'
 require 'logger'
-require 'doge_api'
+require 'dogecoin_client'
 require 'sinatra'
 require "sinatra/reloader" if development?
 
 require 'erb'
 
-my_key = 'g1yvsg1nbv6ma1i2wdgobh8l84'
-
-DOGE = DogeApi::DogeApi.new(my_key, 2)
+DOGE = DogecoinClient.new(user: 'greg', password: 'blown')
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))

@@ -7,8 +7,9 @@ class AcceptedBet < ActiveRecord::Base
 
   private
    def create_holder
-    self.holder = Dogedler.create.unique_holder
-    DOGE.create_user(user_id: self.holder)
+    x = Dogedler.create
+    self.holder = x.unique_holder
+    DOGE.get_new_address(self.holder)
   end
 
   def set_status

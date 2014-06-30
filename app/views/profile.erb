@@ -1,11 +1,12 @@
 <div class = "profile">
 <h1 id="profile_header"> profile for <b><%= @user.username %></b> </h1>
-<h3> unique id: <span id="profile_id"><%= @user.address %> </span></h3>
+<h3> dogecoin address: <span id="profile_id"><%= @user.address %> </span></h3>
 <h3 id="profile_bets_created">bets created by <%= @user.username %></h3>
+
 <% @user.bets.each do |bet| %>
-<%= "<p>#{bet.title}<br>#{bet.content[0..50]}<br>#{bet.remainder} of #{bet.total}<br></p>" %>
+<%= "<a href = '/bet/#{bet.id}'>#{bet.title} #{bet.winner} Ð#{bet.total}<br></p></a>" %>
 <% end %>
-<h3 id="profile_bets_taken">action taken by <%= @user.username %></h3>
+<h3 id="profile_bets_taken">bets taken by <%= @user.username %></h3>
 <% @user.accepted_bets.each do |a_bet| %>
 <% master_bet = Bet.find_by_id(a_bet.bet_id) %>
 <%= "#{a_bet.amount} with #{User.find_by_id(master_bet.user_id).username}<br>#{master_bet.title}<br>#{master_bet.content}<br>" %>
