@@ -3,18 +3,27 @@
   <p id="bet_title"><%= @bet.title %><br>
   <p> Total Action Offered: <span class = 'eth'>Ð</span><%= @bet.total %></p>
   <p> Total Action Remaining: <span class = 'eth'>Ð</span><%= @bet.remainder %></p>
-  <p id="bookie">Bookie: <%= User.find_by(id: @bet.user_id).username %></p>
+  <p id="bookie">Bookie: <%= @user.username %></p>
+  <p> Betting on <%= @bet.winner %> to WIN </p>
+  <p> Betting on <%= @bet.loser %> to LOSE </p>
+  <p>Time Remaining <%= (time_remaining(@bet.expiration - Time.now)) %></p>
+  <p>Bet Status: <%= @bet.status.upcase %></p>
   <p id="bet_content"> <%= @bet.content %></p>
   <p id="bet_tags">
     <% @bet.tags.each do |tag| %>
       <a href="/tag/<%=tag.name %>"> <%= tag.name %></a>
     <% end %>
   </p>
+
+</div>
+    <div id="acceptbet">
+    <p>WOW SUCH BET! Bet against <%= @user.username %> and bet on <%= @bet.loser %> to win!</p>
   <form name="accept_bet" action="/bet/<%= @bet.id %>" method="post">
     <input name="amount" type="text" placeholder="2.00">
     <input type="submit" value="Place bet.">
   </form>
 </div>
 <div id="accepted_bets">
-  <%= @bet.accepted_bets.map{|a_bet| "<p>#{a_bet.user.username}</p><p>#{a_bet.amount}</p><p>#{a_bet.created_at}</p>" }.join %>
+  <p>BETS TAKEN AGAINST</p>
+  <%= @bet.accepted_bets.map{|a_bet| "<p>#{a_bet.created_at.mon}/#{a_bet.created_at.day}: #{a_bet.user.username} took <span class = 'eth'>Ð#{a_bet.amount}</span> of action ON #{@bet.loser} AGAINST #{@bet.winner}</p>" }.join %>
 </div>

@@ -63,6 +63,7 @@ body a {
 	text-align: left;
 	float: left;
 	width:80%;
+  max-width: 800px;
 	background: white;
 	opacity: 0.7;
 	margin: 0 auto;
@@ -179,4 +180,13 @@ button {
 .eth{
   font-size: 1.6em;
   font-style: italic;
+}
+
+.bet_entry{
+  line-height: 2em;
+}
+
+#bet{
+  border-style: solid;
+  border-width: 2px;
 }

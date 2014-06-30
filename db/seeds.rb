@@ -1,7 +1,7 @@
 require_relative '../app/models/user.rb'
 require_relative '../app/models/bet.rb'
 
-Dogedler.create(unique_holder: "c00")
+Dogedler.create(unique_holder: "Z00")
 
 # adrian = User.create(username: "dogeadrian", email: "dogeadrian@gmail.com", password: "password")
 

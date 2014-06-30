@@ -30,7 +30,8 @@ end
 get '/bet/:id' do
   @error = "not enough money to place bet add more doge" if params[:e] == 'n'
 	@bet = Bet.find_by_id(params[:id])
-  @bets = @bet.accepted_bets.order(:created_at).reverse_order
+  @user = User.find_by(id: @bet.user_id)
+  #@bets = @bet.accepted_bets.order(:created_at).reverse_order
 	erb :bet
 end
 
@@ -43,10 +44,11 @@ post '/bet/:id' do
     DOGE.move(user.username, bet.accepted_bets.last.holder, accepted_bet_values[:amount])
     DOGE.move(bet.holder, bet.accepted_bets.last.holder, accepted_bet_values[:amount])
     bet.remainder -= accepted_bet_values[:amount]
+    bet.status = 'closed' if bet.remainder == 0
     bet.save
     redirect '/'
   else
-    redirect '/bet/:id?e=n'
+    redirect "/bet/#{params[:id]}?e=n"
   end
 
 end
