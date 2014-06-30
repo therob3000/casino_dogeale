@@ -58,11 +58,12 @@ end
     accepted_bet.winner = params[:winner]
     accepted_bet.save
     if accepted_bet.winner == bet.winner
-      DOGE.move(User.find_by_id(accepted_bet.user_id).username, User.find_by_id(bet.user_id).username, DOGE.get_balance(accepted_bet.holder))
+      DOGE.move(accepted_bet.holder, User.find_by_id(bet.user_id).username, DOGE.get_balance(accepted_bet.holder))
     else
-      DOGE.move(User.find_by_id(bet.user_id).username, User.find_by_id(accepted_bet.user_id).username, DOGE.get_balance(accepted_bet.holder))
+      DOGE.move(accepted_bet.holder, User.find_by_id(accepted_bet.user_id).username, DOGE.get_balance(accepted_bet.holder))
     end
-    bet.status = 'closed'
+    bet.status = 'closed and paid'
+    bet.remainder = 0
     bet.save
     redirect '/'
   end
