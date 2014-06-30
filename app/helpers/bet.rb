@@ -36,5 +36,13 @@ helpers do
     }
   end
 
+  def status_hash(bets)
+    status = {}
+    bets.each{|bet|
+      status[bet.status] = bet
+    }
+    status
+  end
+
 
 end
