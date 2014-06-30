@@ -50,6 +50,20 @@ post '/bet/:id' do
   else
     redirect "/bet/#{params[:id]}?e=n"
   end
-
 end
+
+  put '/bet/:id' do
+    bet = Bet.find_by_id(params[:id])
+    accepted_bet = bet.accepted_bets.find_by(user_id: session[:user_id])
+    accepted_bet.winner = params[:winner]
+    accepted_bet.save
+    if accepted_bet.winner == bet.winner
+      DOGE.move(User.find_by_id(accepted_bet.user_id).username, User.find_by_id(bet.user_id).username, DOGE.get_balance(accepted_bet.holder))
+    else
+      DOGE.move(User.find_by_id(bet.user_id).username, User.find_by_id(accepted_bet.user_id).username, DOGE.get_balance(accepted_bet.holder))
+    end
+    bet.status = 'closed'
+    bet.save
+    redirect '/'
+  end
 

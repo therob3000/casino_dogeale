@@ -9,7 +9,7 @@
 <h3 id="profile_bets_taken">bets taken by <%= @user.username %></h3>
 <% @user.accepted_bets.each do |a_bet| %>
 <% master_bet = Bet.find_by_id(a_bet.bet_id) %>
-<%= "#{a_bet.amount} with #{User.find_by_id(master_bet.user_id).username}<br>#{master_bet.title}<br>#{master_bet.content}<br>" %>
+<%= "<a href = '/bet/#{master_bet.id}'>#{master_bet.title} #{master_bet.loser} Ð#{a_bet.amount} with #{User.find_by_id(master_bet.user_id).username}<br></p></a>" %>
 <% end %>
 </div>
 

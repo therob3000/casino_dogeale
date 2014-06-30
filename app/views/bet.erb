@@ -16,9 +16,8 @@
       <a href="/tag/<%=tag.name %>"> <%= tag.name %></a>
     <% end %>
   </p>
-
 </div>
-  <% unless @bet.status != 'open'%>
+  <% if @bet.status == 'open'%>
     <div id="acceptbet">
     <p>WOW SUCH BET! Bet against <%= @user.username %> and bet on <%= @bet.loser %> to win!</p>
   <form name="accept_bet" action="/bet/<%= @bet.id %>" method="post">
@@ -26,7 +25,18 @@
     <input type="submit" value="Place bet.">
   </form>
 </div>
-<% end %>
+
+  <% elsif @bet.status == 'expired' %>
+  <%  if session[:user_id] == @bet.user_id || check_bets(@bet) %>
+    <p>Who won?</p>
+    <form name="win" action="/bet/<%= @bet.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input name="winner" type="radio" value="<%=@bet.winner%>"><%=@bet.winner%><br>
+    <input name="winner" type="radio" value="<%=@bet.loser%>"><%=@bet.loser%><br>
+    <input type="submit" value="Submit Result">
+  </form>
+  <% end %>
+  <% end %>
 <div id="accepted_bets">
   <p>BETS TAKEN AGAINST</p>
   <%= @bet.accepted_bets.map{|a_bet| "<p>#{a_bet.created_at.mon}/#{a_bet.created_at.day}: #{a_bet.user.username} took <span class = 'eth'>Ð#{a_bet.amount}</span> of action ON #{@bet.loser} AGAINST #{@bet.winner}</p>" }.join %>

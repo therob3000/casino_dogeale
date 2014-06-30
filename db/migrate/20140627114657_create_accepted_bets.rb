@@ -6,6 +6,7 @@ class CreateAcceptedBets < ActiveRecord::Migration
       t.float :amount
       t.string :holder
       t.string :status
+      t.string :winner
       t.timestamps
     end
   end
