@@ -1,7 +1,7 @@
 ### Casino Dogeale
 
-Casino Dogeale is a online casino using Doge-coins
-YOU NEED IT! YOU WANT IT! DON'T QUESTION THE DOGE!
+Casino Dogeale is a online casino using Doge-coin as currency. 
+This is purely for learning purposes with Sinatra framework.
 
 ### Quickstart
 
